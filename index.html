@@ -5,9 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <!-- the swiping up loader effect-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
     <title>Custom Pre-loader</title>
   </head>
   <body>
-    <div class="pre-loader"><img src="./icon.png" alt="" srcset="" /></div>
+    <div class="pre-loader">
+      <img class="loader" src="./icon.png" alt="" srcset="" />
+    </div>
+
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vero
+        dolorum obcaecati sequi quis explicabo odio consequatur nesciunt
+        quisquam ea at provident aspernatur impedit quo corrupti, quia, dolorem,
+        praesentium ut?
+      </p>
+    </div>
   </body>
+
+  <script>
+    (function ($) {
+      'use strict';
+      $(window).on('load', function () {
+        if ($('.pre-loader').length > 0) {
+          TweenMax.to('.pre-loader', 2, {
+            ease: Expo.easeInOut,
+            delay: 13.6, //3.6
+            opacity: 0,
+          });
+        }
+      });
+    })(jQuery);
+  </script>
 </html>
